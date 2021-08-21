@@ -42,7 +42,7 @@ async function send(){
     });
 
     let sw = await navigator.serviceWorker.ready;
-    
+
     //register push
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
@@ -50,15 +50,17 @@ async function send(){
         //public vapid key
         applicationServerKey: urlBase64ToUint8Array("BHJHo59xcH4QPPheh2gJ7YPXhd3bkQa1IpF2uo4U7vHABm2Q_hydGiLSPqN6f6MfalH1n8O_Y1hSFmu-FU-yRUU")
     });
+
+    console.log(subscription)
    
     //Send push notification
-    await fetch("/subscribe", {
+    /* await fetch("/subscribe", {
         method: "POST",
         body: JSON.stringify(subscription),
         headers: {
             "content-type": "application/json"
         }
-    });
+    }); */
 }
 
 
